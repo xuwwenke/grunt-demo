@@ -1,27 +1,33 @@
 module.exports = function (grunt) {
 
-    grunt.initConfig({
-  
-      htmlhint: {
-  
-        options: {
-  
-          htmlhintrc: '.htmlhintrc'
-  
-        },
-  
-        src: ['*.html']
-  
+  grunt.initConfig({
+
+    mocha: {
+
+      test: {
+
+        src: ['test/index.html'],
+
+      },
+
+      options: {
+
+        run: true,
+
+        reporter: 'Dot'
+
       }
-  
-    });
-  
-  
-  
-    grunt.loadNpmTasks('grunt-htmlhint');
-  
-  
-  
-    grunt.registerTask('default', ['htmlhint']);
-  
-  };
+
+    }
+
+  });
+
+
+
+  grunt.loadNpmTasks('grunt-mocha');
+
+
+
+  grunt.registerTask('default', ['mocha']);
+
+};
