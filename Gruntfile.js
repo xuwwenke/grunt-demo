@@ -2,17 +2,17 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
 
-    uglify: {
+    imagemin: {                               
 
-      release:{
+      files: {
 
-        files: {
+        expand: true,
 
-          'js/jquery.min.js': 'js/jquery.js'
+        src: ['images/*.{png,jpg,gif}'],
 
-        }
+        dest: 'dist/'
 
-      }       
+      }
 
     }
 
@@ -20,10 +20,10 @@ module.exports = function (grunt) {
 
 
 
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
 
 
-  grunt.registerTask('default', ['uglify:release']);
+  grunt.registerTask('default', ['imagemin']);    
 
 };
